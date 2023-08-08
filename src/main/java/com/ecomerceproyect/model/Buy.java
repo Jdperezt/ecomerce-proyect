@@ -1,10 +1,13 @@
 package com.ecomerceproyect.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
-public class buy {
+@Entity
+@Table(name = "buy")
+public class Buy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String number;
     private LocalDateTime receipDate;
@@ -12,10 +15,16 @@ public class buy {
 
     private double total;
 
-    public buy() {
+    @ManyToOne
+    private User user;
+
+    @OneToOne(mappedBy = "buy")
+    private DetailBuy detailBuy;
+
+    public Buy() {
     }
 
-    public buy(Integer id, String number, LocalDateTime receipDate, LocalDateTime deliverDate, double total) {
+    public Buy(Integer id, String number, LocalDateTime receipDate, LocalDateTime deliverDate, double total) {
         this.id = id;
         this.number = number;
         this.receipDate = receipDate;
@@ -61,6 +70,22 @@ public class buy {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public DetailBuy getDetailBuy() {
+        return detailBuy;
+    }
+
+    public void setDetailBuy(DetailBuy detailBuy) {
+        this.detailBuy = detailBuy;
     }
 
     @Override

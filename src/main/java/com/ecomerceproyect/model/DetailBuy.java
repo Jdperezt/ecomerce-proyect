@@ -1,23 +1,22 @@
 package com.ecomerceproyect.model;
 
-public class DatailBuy {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "detail")
+public class DetailBuy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer amount;
     private double price;
-
     private double total;
 
-    public DatailBuy(double total) {
-        this.total = total;
-    }
-
-    public DatailBuy(Integer id, String name, Integer amount, double price) {
-        this.id = id;
-        this.name = name;
-        this.amount = amount;
-        this.price = price;
-    }
+    @OneToOne
+    private Buy buy;
+    @ManyToOne
+    private Product product;
 
     public Integer getId() {
         return id;
@@ -57,5 +56,32 @@ public class DatailBuy {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public Buy getBuy() {
+        return buy;
+    }
+
+    public void setBuy(Buy buy) {
+        this.buy = buy;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public DetailBuy(Integer id, String name, Integer amount, double price) {
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+        this.price = price;
+    }
+
+    public DetailBuy() {
+
     }
 }

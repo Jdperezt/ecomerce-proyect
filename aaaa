@@ -1,0 +1,11 @@
+[33mcommit 6014a478c131161cf1aff01971c8b46912808eae[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Julian Perez <jdperezt@ufpso.edu.co>
+Date:   Tue Aug 8 14:24:30 2023 -0500
+
+    creacion del front mediante boostrap, confuguracion de la base de datos creacion de la carpeta Admin para configurar el front
+
+[33mcommit f2ff25066f772ec74fee4b2547ba1a6291cc0250[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Julian Perez <jdperezt@ufpso.edu.co>
+Date:   Tue Aug 8 08:42:27 2023 -0500
+
+    creacion de la estructira del proyectoy las clases del model
